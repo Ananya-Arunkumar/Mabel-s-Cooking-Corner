@@ -1,0 +1,117 @@
+body {
+    background-color: #e8c58f;
+}
+
+.site-header img {
+    width: 100%;
+    height: 200px;
+    display: block;
+    top: 0;
+}
+
+.headings {
+    text-align: center;
+}
+
+.MainImgs {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 10px solid #6b351d;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: calc(100%-250px);
+    min-height: 100px;
+    color: #f3d5a8;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #5E2F13;
+    border-top: 5px ridge #3d2115;
+}
+
+#footer p {margin: 2px 0; line-height: 1.2;}
+
+#footer h3 {margin: 2px 0;}
+
+#footer a {
+    color: #f3d5a8;
+}
+
+#footer a:hover {
+    color: #ffffff;
+}
+
+.MabelsNote {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #3d2115;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #eb9963;
+}
+
+.recipe-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border: 3px solid #3d2115;
+    flex-wrap: wrap;
+    background-color: #eb9963;
+    padding: 20px;
+}
+
+.recipe-info p {
+    margin: 5px 0;
+}
+
+.recipe-divider {
+    width: 1px;
+    height: 35px;
+    background-color: #6b351d;
+
+}
+
+.button {
+    display: inline-block;
+    background-color: #6b351d;
+    color: #f3d5a8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    align-items: center;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button:hover{
+    background-color: #3d2115;
+}
+
+.button:active{
+    background-color: #eb9963;
+}
+
+#MabelImgs {
+    width: 40%;
+    height: auto;
+    border: 4px solid #5E2F13;
+    border-radius: 4px;
+}
+
+#MabelAlign {
+    text-align: center;
+}
