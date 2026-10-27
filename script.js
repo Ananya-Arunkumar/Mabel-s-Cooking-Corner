@@ -73,40 +73,39 @@ const randomIndex = Math.floor(
     Math.random() * horrorMessages.length
 );
 
-const horrorMessage = document.getElementById("horror-message");
-
-if (horrorMessage) {
-    horrorMessage.textContent = horrorMessages[randomIndex];
-}
+document.getElementById("horror-message").textContent =
+    horrorMessages[randomIndex];
 
 // Get the intended destination from the URL
-if (document.body.classList.contains("black-screen-page")) {
+const params = new URLSearchParams(window.location.search);
+const requestedDestination = params.get("destination");
 
-    const params = new URLSearchParams(window.location.search);
-    const requestedDestination = params.get("destination");
+// Only allow redirects to known pages in this website
+const allowedDestinations = [
+    "index.html",
+    "start.html",
+    "Recipe1.html",
+    "Recipe2.html",
+    "Recipe3.html",
+    "Recipe4.html",
+    "after.html",
+    "final-recipe.html",
+    "missing.html"
+];
 
-    const allowedDestinations = [
-        "index.html",
-        "start.html",
-        "Recipe1.html",
-        "Recipe2.html",
-        "Recipe3.html",
-        "Recipe4.html",
-        "after.html",
-        "final-recipe.html",
-        "missing.html"
-    ];
+const destination = allowedDestinations.includes(requestedDestination)
+    ? requestedDestination
+    : "index.html";
 
-    const destination = allowedDestinations.includes(requestedDestination)
-        ? requestedDestination
-        : "index.html";
+// Stay on the black screen for 3 seconds
+setTimeout(() => {
+    document.body.classList.add("flicker");
 
+    // Redirect after the flickering
     setTimeout(() => {
-        document.body.classList.add("flicker");
+        window.location.href = destination;
+    }, 300);
 
-        setTimeout(() => {
-            window.location.href = destination;
-        }, 900);
+}, 800);
 
-    }, 800);
-}
+
