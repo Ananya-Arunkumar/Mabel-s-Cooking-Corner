@@ -80,35 +80,33 @@ if (horrorMessage) {
 }
 
 // Get the intended destination from the URL
-const params = new URLSearchParams(window.location.search);
-const requestedDestination = params.get("destination");
+if (document.body.classList.contains("black-screen-page")) {
 
-// Only allow redirects to known pages in this website
-const allowedDestinations = [
-    "index.html",
-    "start.html",
-    "Recipe1.html",
-    "Recipe2.html",
-    "Recipe3.html",
-    "Recipe4.html",
-    "after.html",
-    "final-recipe.html",
-    "missing.html"
-];
+    const params = new URLSearchParams(window.location.search);
+    const requestedDestination = params.get("destination");
 
-const destination = allowedDestinations.includes(requestedDestination)
-    ? requestedDestination
-    : "index.html";
+    const allowedDestinations = [
+        "index.html",
+        "start.html",
+        "Recipe1.html",
+        "Recipe2.html",
+        "Recipe3.html",
+        "Recipe4.html",
+        "after.html",
+        "final-recipe.html",
+        "missing.html"
+    ];
 
-// Stay on the black screen for 3 seconds
-setTimeout(() => {
-    document.body.classList.add("flicker");
+    const destination = allowedDestinations.includes(requestedDestination)
+        ? requestedDestination
+        : "index.html";
 
-    // Redirect after the flickering
     setTimeout(() => {
-        window.location.href = destination;
-    }, 300);
+        document.body.classList.add("flicker");
 
-}, 800);
+        setTimeout(() => {
+            window.location.href = destination;
+        }, 900);
 
-
+    }, 800);
+}
