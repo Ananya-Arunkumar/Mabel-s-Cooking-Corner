@@ -49,7 +49,63 @@ if (finalMessage) {
 
             setTimeout(function() {
                 alert("Are you unhappy?");
+                window.location.href = "credits.html";
             }, 3000);
         }
     });
 }
+
+const horrorMessages = [
+    "HELP ME.",
+    "IT IS NOT MABEL.",
+    "PLEASE LEAVE.",
+    "SHE WON'T LET ME GO.",
+    "ARE YOU STILL THERE?",
+    "THIS IS NOT MY WEBSITE.",
+    "PLEASE DON'T LET HER SEE THIS.",
+    "EVERYTHING IS FINE.",
+    "PLEASE DISREGARD THE PREVIOUS MESSAGE.",
+    "THERE IS NOTHING WRONG."
+];
+
+// Choose a random message
+const randomIndex = Math.floor(
+    Math.random() * horrorMessages.length
+);
+
+document.getElementById("horror-message").textContent =
+    horrorMessages[randomIndex];
+
+// Get the intended destination from the URL
+const params = new URLSearchParams(window.location.search);
+const requestedDestination = params.get("destination");
+
+// Only allow redirects to known pages in this website
+const allowedDestinations = [
+    "index.html",
+    "start.html",
+    "Recipe1.html",
+    "Recipe2.html",
+    "Recipe3.html",
+    "Recipe4.html",
+    "after.html",
+    "final-recipe.html",
+    "missing.html"
+];
+
+const destination = allowedDestinations.includes(requestedDestination)
+    ? requestedDestination
+    : "index.html";
+
+// Stay on the black screen for 3 seconds
+setTimeout(() => {
+    document.body.classList.add("flicker");
+
+    // Redirect after the flickering
+    setTimeout(() => {
+        window.location.href = destination;
+    }, 300);
+
+}, 800);
+
+
