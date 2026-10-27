@@ -69,43 +69,61 @@ const horrorMessages = [
 ];
 
 // Choose a random message
-const randomIndex = Math.floor(
-    Math.random() * horrorMessages.length
-);
 
-document.getElementById("horror-message").textContent =
-    horrorMessages[randomIndex];
+const horrorMessage = document.getElementById("horror-message");
 
-// Get the intended destination from the URL
-const params = new URLSearchParams(window.location.search);
-const requestedDestination = params.get("destination");
+// Only run the horror message and redirect on the black-screen page
+if (document.body.classList.contains("black-screen-page")) {
 
-// Only allow redirects to known pages in this website
-const allowedDestinations = [
-    "index.html",
-    "start.html",
-    "Recipe1.html",
-    "Recipe2.html",
-    "Recipe3.html",
-    "Recipe4.html",
-    "after.html",
-    "final-recipe.html",
-    "missing.html"
-];
+    const horrorMessages = [
+        "HELP ME.",
+        "IT IS NOT MABEL.",
+        "PLEASE LEAVE.",
+        "SHE WON'T LET ME GO.",
+        "ARE YOU STILL THERE?",
+        "THIS IS NOT MY WEBSITE.",
+        "PLEASE DON'T LET HER SEE THIS.",
+        "EVERYTHING IS FINE.",
+        "PLEASE DISREGARD THE PREVIOUS MESSAGE.",
+        "THERE IS NOTHING WRONG."
+    ];
 
-const destination = allowedDestinations.includes(requestedDestination)
-    ? requestedDestination
-    : "index.html";
+    // Display a random message, if the element exists
+    if (horrorMessage) {
+        const randomIndex = Math.floor(
+            Math.random() * horrorMessages.length
+        );
 
-// Stay on the black screen for 3 seconds
-setTimeout(() => {
-    document.body.classList.add("flicker");
+        horrorMessage.textContent = horrorMessages[randomIndex];
+    }
 
-    // Redirect after the flickering
+    // Get the intended destination from the URL
+    const params = new URLSearchParams(window.location.search);
+    const requestedDestination = params.get("destination");
+
+    const allowedDestinations = [
+        "index.html",
+        "start.html",
+        "Recipe1.html",
+        "Recipe2.html",
+        "Recipe3.html",
+        "Recipe4.html",
+        "after.html",
+        "final-recipe.html",
+        "missing.html"
+    ];
+
+    const destination = allowedDestinations.includes(requestedDestination)
+        ? requestedDestination
+        : "index.html";
+
+    // Flicker, then redirect
     setTimeout(() => {
-        window.location.href = destination;
-    }, 300);
+        document.body.classList.add("flicker");
 
-}, 800);
+        setTimeout(() => {
+            window.location.href = destination;
+        }, 300);
 
-
+    }, 800);
+}
