@@ -73,8 +73,11 @@ const randomIndex = Math.floor(
     Math.random() * horrorMessages.length
 );
 
-document.getElementById("horror-message").textContent =
-    horrorMessages[randomIndex];
+const horrorMessage = document.getElementById("horror-message");
+
+if (horrorMessage) {
+    horrorMessage.textContent = horrorMessages[randomIndex];
+}
 
 // Get the intended destination from the URL
 const params = new URLSearchParams(window.location.search);
