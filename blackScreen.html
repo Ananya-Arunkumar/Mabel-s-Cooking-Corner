@@ -4,43 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>...</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-    body.black-screen-page {
-    margin: 0;
-    min-height: 100vh;
-    background: #000;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    font-family: monospace;
-}
+        body.black-screen-page {
+            margin: 0;
+            min-height: 100vh;
+            background: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: monospace;
+        }
 
-#horror-message {
-    padding: 20px;
-    text-align: center;
-    font-size: 22px;
-    letter-spacing: 3px;
-}
+        #horror-message {
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 3px;
+        }
 
-/* Flickering effect */
-body.black-screen-page.flicker {
-    animation: screen-flicker 0.15s steps(2, end) 6;
-}
+        body.black-screen-page.flicker {
+            animation: screen-flicker 0.15s steps(2, end) 6;
+        }
 
-@keyframes screen-flicker {
-    0%, 100% {
-        opacity: 1;
-    }
+        @keyframes screen-flicker {
+            0%, 100% {
+                opacity: 1;
+            }
 
-    50% {
-        opacity: 0;
-    }
-}
-</style>
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
 <body class="black-screen-page">
 
     <div id="horror-message"></div>
